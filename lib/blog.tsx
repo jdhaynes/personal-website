@@ -40,7 +40,7 @@ export const getAllPostsMetadata = (): PostMetadataWithSlug[] => {
   const contentFilenames = getContentFilenames(contentDirectory, "md");
 
   return contentFilenames.map((fileName: string): PostMetadataWithSlug => {
-    const slug = fileName.replace(".md$", "");
+    const slug = fileName.replace(/.md$/, "");
     const markdown = getFileContent(`${contentDirectory}/${fileName}`);
     const content = parseMarkdown(markdown);
 

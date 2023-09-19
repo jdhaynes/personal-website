@@ -1,21 +1,14 @@
 import * as fs from "fs";
 import Link from "next/link";
-
-const getPostMetadata = () => {
-  const postsDir = "content/posts/"
-  const postsFiles = fs.readdirSync(postsDir);
-  const postsMarkdownFiles = postsFiles.filter((file) => file.endsWith(".md"));
-  const slugs = postsMarkdownFiles.map((file) => file.replace(".md", ""));
-
-  return slugs;
-}
+import { getAllPostsMetadata } from "@/lib/blog";
 
 const BlogHomePage = () => {
-  const postMetadata = getPostMetadata();
-  const postPreviews = postMetadata.map((slug) => (
+  const postMetadata = getAllPostsMetadata();
+  const postPreviews = postMetadata.map((post) => (
       <div>
-        <Link href={`/blog/${slug}`}>
-          <h2>{slug}</h2>
+        <Link href={`/blog/${post.slug}`}>
+          <h1>{post.title}</h1>
+          <h2>{post.subtitle}</h2>
         </Link>
       </div>
   ));
@@ -24,5 +17,6 @@ const BlogHomePage = () => {
     {postPreviews}
   </div>
 }
+
 
 export default BlogHomePage;
