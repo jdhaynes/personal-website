@@ -1,7 +1,7 @@
 import * as fs from "fs";
 
 const getPostSlugs = (): string[] => {
-  const postsDir = "posts/"
+  const postsDir = "content/posts"
   const postsFiles = fs.readdirSync(postsDir);
   const postsMarkdownFiles = postsFiles.filter((file) => file.endsWith(".md"));
   const slugs = postsMarkdownFiles.map((file) => file.replace(".md", ""));
@@ -10,7 +10,7 @@ const getPostSlugs = (): string[] => {
 }
 
 const getPostContent = (slug: string): string => {
-  const dir = "posts";
+  const dir = "content/posts";
   const file = `${dir}/${slug}.md`;
   const content = fs.readFileSync(file, "utf-8");
 
