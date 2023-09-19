@@ -1,38 +1,26 @@
-import * as fs from "fs";
+import { getAllPostsMetadata, getPostContent } from "@/lib/blog";
 
-const getPostSlugs = (): string[] => {
-  const postsDir = "content/posts"
-  const postsFiles = fs.readdirSync(postsDir);
-  const postsMarkdownFiles = postsFiles.filter((file) => file.endsWith(".md"));
-  const slugs = postsMarkdownFiles.map((file) => file.replace(".md", ""));
+type Params = { slug: string }
 
-  return slugs;
-}
-
-const getPostContent = (slug: string): string => {
-  const dir = "content/posts";
-  const file = `${dir}/${slug}.md`;
-  const content = fs.readFileSync(file, "utf-8");
-
-  return content;
-}
-
-const BlogPostPage = ({ params }: { params: { slug: string } }) => {
+const BlogPostPage = ({ params }: { params: Params }) => {
   const slug = params.slug;
-  const content = getPostContent(slug);
+  const post = getPostContent(slug);
 
   return <div>
-    <h1>This is a blog post: {slug}</h1>
-    <p>{content}</p>
+    <h1>{post.metadata.title}</h1>
+    <h2>{post.metadata.subtitle}</h2>
+    <p>{post.metadata.date.toString()}</p>
+    <p>{post.content}</p>
   </div>
 }
 
-export const generateStaticParams = (): { slug: string }[] => {
-  const slugs = getPostSlugs();
+export const generateStaticParams = (): Params[] => {
+  let posts = getAllPostsMetadata();
+  posts = posts.filter((post) => post.isPublished);
 
-  return slugs.map((slug) => (
-      { slug }
-  ));
+  return posts.map((post) => ({
+    slug: post.slug
+  }));
 };
 
 export default BlogPostPage;
