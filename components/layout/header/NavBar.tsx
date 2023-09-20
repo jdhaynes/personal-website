@@ -7,7 +7,7 @@ interface Props {
 
 const NavBar: React.FC<Props> = ({ links }: Props) => {
   return (
-    <div>
+    <div className="flex space-x-7">
       {links.map((link) => (
         <NavItem {...link} />
       ))}

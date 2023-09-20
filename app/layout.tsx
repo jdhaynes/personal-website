@@ -14,8 +14,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
-        <div className="mx-auto max-w-6xl px-4">
+      <body className="bg-stone-50">
+        <div className="mx-auto max-w-5xl">
           <Header title={metadata.title} navLinks={navLinks} />
           <div>{children}</div>
         </div>

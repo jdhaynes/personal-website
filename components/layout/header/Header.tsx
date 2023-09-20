@@ -1,6 +1,7 @@
 import React from "react";
 import NavBar from "@/components/layout/header/NavBar";
 import { NavLink } from "@/components/layout/header/NavItem";
+import Logo from "@/components/layout/header/Logo";
 
 interface Props {
   title: string;
@@ -9,10 +10,10 @@ interface Props {
 
 const Header: React.FC<Props> = ({ title, navLinks }: Props) => {
   return (
-      <header>
-        <div>{title}</div>
-        <NavBar links={navLinks}></NavBar>
-      </header>
+    <header className="flex justify-between py-8 text-gray-800">
+      <Logo title={title} />
+      <NavBar links={navLinks}></NavBar>
+    </header>
   );
 };
 
