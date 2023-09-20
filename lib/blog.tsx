@@ -1,4 +1,4 @@
-import config from "@/config"
+import config from "@/config";
 import fs from "fs";
 import matter from "gray-matter";
 import { z } from "zod";
@@ -8,22 +8,25 @@ const frontMatterSchema = z.object({
   subtitle: z.string().optional(),
   date: z.coerce.date(),
   isPublished: z.boolean().optional().default(false),
-  tags: z.array(z.string())
-})
+  tags: z.array(z.string()),
+});
 
-type PostMetadata = z.infer<typeof frontMatterSchema>
-type PostMetadataWithSlug = PostMetadata & { slug: string }
-type PostContent = { metadata: PostMetadata, content: string }
-type Post = PostContent & { slug: string }
+export type PostMetadata = z.infer<typeof frontMatterSchema>;
+export type PostMetadataWithSlug = PostMetadata & { slug: string };
+export type PostContent = { metadata: PostMetadata; content: string };
+export type Post = PostContent & { slug: string };
 
-const getContentFilenames = (directory: string, extension: string): string[] => {
+const getContentFilenames = (
+  directory: string,
+  extension: string,
+): string[] => {
   const allFiles = fs.readdirSync(directory);
   return allFiles.filter((file) => file.endsWith(`.${extension}`));
-}
+};
 
 const getFileContent = (filePath: string): string => {
   return fs.readFileSync(filePath, "utf-8");
-}
+};
 
 const parseMarkdown = (markdown: string): PostContent => {
   const { data: frontMatter, content } = matter(markdown);
@@ -31,8 +34,8 @@ const parseMarkdown = (markdown: string): PostContent => {
 
   return {
     metadata,
-    content
-  }
+    content,
+  };
 };
 
 export const getAllPostsMetadata = (): PostMetadataWithSlug[] => {
@@ -46,10 +49,10 @@ export const getAllPostsMetadata = (): PostMetadataWithSlug[] => {
 
     return {
       slug,
-      ...content.metadata
-    }
-  })
-}
+      ...content.metadata,
+    };
+  });
+};
 
 export const getPostContent = (slug: string): Post => {
   const contentDirectory = config.blog.contentDirectory;
@@ -58,6 +61,6 @@ export const getPostContent = (slug: string): Post => {
 
   return {
     slug,
-    ...content
-  }
-}
+    ...content,
+  };
+};
