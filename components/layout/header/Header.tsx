@@ -10,7 +10,7 @@ interface Props {
 
 const Header: React.FC<Props> = ({ title, navLinks }: Props) => {
   return (
-    <header className="flex justify-between py-8 text-gray-800">
+    <header className="flex justify-between items-center py-8 text-gray-800">
       <Logo title={title} />
       <NavBar links={navLinks}></NavBar>
     </header>

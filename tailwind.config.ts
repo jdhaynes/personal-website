@@ -25,7 +25,7 @@ const config: Config = {
         },
       },
       animation: {
-        cursor: "blink 1s infinite",
+        cursor: "blink 1s 3",
       },
     },
   },
