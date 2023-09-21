@@ -8,7 +8,7 @@ export interface NavLink {
 
 const NavItem: React.FC<NavLink> = ({ name, href }: NavLink) => {
   return (
-    <Link href={href} className="font-medium">
+    <Link href={href} className="font-bold text-xl text-gray-900">
       {name}
     </Link>
   );

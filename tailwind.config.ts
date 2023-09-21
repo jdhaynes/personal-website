@@ -8,6 +8,11 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        roboto: ["Roboto Mono", "monospace"],
+        ubuntu: ["Ubuntu Mono", "monospace"],
+        inconsolata: ["Inconsolata", "monospace"],
+      },
       colors: {
         "material-green": "#cce590",
         "material-cyan": "#9dd8fa",
@@ -16,6 +21,7 @@ const config: Config = {
         "material-red": "#FF5252",
         "material-blue": "#40C4FF",
         "material-gray": "#283237",
+        stone: "#f7f5f3",
       },
       keyframes: {
         blink: {
@@ -29,6 +35,6 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
 export default config;
