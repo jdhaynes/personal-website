@@ -4,8 +4,8 @@ import Link from "next/link";
 const Logo: React.FC<{ title: string }> = ({ title }) => {
   return (
     <Link href="/">
-      <div className="flex bg-material-gray text-xl font-bold py-3 px-4 rounded-lg drop-shadow-xl s33hadow-gray-600">
-        <div className="text-material-green">jackhaynes</div>
+      <div className="flex bg-material-gray text-xl font-bold py-3 px-4 rounded-lg drop-shadow-xl shadow-gray-600">
+        <div className="text-material-green hidden sm:inline">jackhaynes</div>
         <div className="text-white">:</div>
         <div className="text-material-cyan">~</div>
         <div className="text-white">$</div>

@@ -8,6 +8,18 @@ const config: Config = {
   ],
   theme: {
     extend: {
+      typography: (theme) => ({
+        default: {
+          css: {
+            "code::before": {
+              content: "jj",
+            },
+            "code::after": {
+              content: "",
+            },
+          },
+        },
+      }),
       fontFamily: {
         roboto: ["Roboto Mono", "monospace"],
         ubuntu: ["Ubuntu Mono", "monospace"],

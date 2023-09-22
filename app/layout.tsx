@@ -15,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="bg-stone font-inconsolata">
-        <div className="flex flex-col mx-auto max-w-5xl">
+        <div className="flex flex-col mx-auto max-w-5xl px-4">
           <Header title={metadata.title} navLinks={navLinks} />
           <div className="my-6 mb-auto">{children}</div>
         </div>
