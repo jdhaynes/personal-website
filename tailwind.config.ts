@@ -8,7 +8,7 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      typography: (theme) => ({
+      typography: {
         default: {
           css: {
             "code::before": {
@@ -19,7 +19,7 @@ const config: Config = {
             },
           },
         },
-      }),
+      },
       fontFamily: {
         roboto: ["Roboto Mono", "monospace"],
         ubuntu: ["Ubuntu Mono", "monospace"],

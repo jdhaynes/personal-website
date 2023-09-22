@@ -1,7 +1,12 @@
 import React from "react";
-import NavBar from "@/components/layout/header/NavBar";
-import { NavLink } from "@/components/layout/header/NavItem";
 import Logo from "@/components/layout/header/Logo";
+import DesktopNav from "@/components/layout/header/DesktopNav";
+import { AiOutlineMenu } from "react-icons/ai";
+
+export interface NavLink {
+  name: string;
+  href: string;
+}
 
 interface Props {
   title: string;
@@ -10,9 +15,14 @@ interface Props {
 
 const Header: React.FC<Props> = ({ title, navLinks }: Props) => {
   return (
-    <header className="flex justify-between items-center py-6 text-gray-800">
-      <Logo title={title} />
-      <NavBar links={navLinks}></NavBar>
+    <header className="flex flex-col md:items-center md:justify-between md:flex-row space-y-6 md:space-y-0">
+      <div className="flex flex-row items-center justify-between">
+        <Logo title={title} />
+        <button className="md:hidden">
+          <AiOutlineMenu className="text-4xl" />
+        </button>
+      </div>
+      <DesktopNav links={navLinks} />
     </header>
   );
 };
