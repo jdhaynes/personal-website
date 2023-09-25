@@ -2,7 +2,7 @@
 title: "Type-Safe Requests with TypeScript and Zod"
 subtitle: "Whoop!"
 date: "2023-09-18"
-tags: ["javascript", "typescript"]
+tags: ["typescript", "nodejs"]
 ---
 
 ## Introduction

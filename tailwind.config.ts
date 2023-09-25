@@ -34,6 +34,8 @@ const config: Config = {
         "material-blue": "#40C4FF",
         "material-gray": "#283237",
         stone: "#f7f5f3",
+        "red-pastel": "#FBE9E6",
+        "red-pastel-dark": "#E73323",
       },
       keyframes: {
         blink: {

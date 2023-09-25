@@ -1,6 +1,7 @@
 import React from "react";
 import { PostMetadataWithSlug } from "@/lib/blog";
 import Link from "next/link";
+import TagBadge from "@/components/blog/TagBadge";
 
 const PostListItem: React.FC<{ post: PostMetadataWithSlug }> = ({ post }) => {
   return (
@@ -12,7 +13,7 @@ const PostListItem: React.FC<{ post: PostMetadataWithSlug }> = ({ post }) => {
         </Link>
         <div className="flex space-x-2">
           {post.tags.map((tag) => (
-            <span className="bg-blue-100 py-1 px-2 rounded-md">{tag}</span>
+            <TagBadge tag={tag} />
           ))}
         </div>
       </div>

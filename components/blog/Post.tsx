@@ -13,6 +13,9 @@ const CodePre: React.FC<{ children: React.ReactNode }> = ({ children }) => {
 const Post: React.FC<Post> = ({ metadata, content }) => {
   return (
     <article className="flex flex-col space-y-2">
+      <div className="flex flex-col justify-between">
+        <div>{metadata.date.toDateString()}</div>
+      </div>
       <h1 className="font-bold text-4xl text-center">{metadata.title}</h1>
       <section className="text-xl text-center">{metadata.subtitle}</section>
       <ReactMarkdown

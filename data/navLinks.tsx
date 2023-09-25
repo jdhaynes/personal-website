@@ -1,4 +1,4 @@
-import { NavLink } from "@/components/layout/header/Header";
+import { NavLink } from "@/components/layout/header/NavbarLink";
 
 const navLinks: NavLink[] = [
   { name: "Blog", href: "/blog" },
